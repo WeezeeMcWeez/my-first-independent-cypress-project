@@ -1,1 +1,1 @@
-# my-first--indenpendent-cypress-project
+# my-first-independent-cypress-project
