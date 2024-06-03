@@ -1,4 +1,7 @@
 describe('Add Contact Tests', () => { //This is the 'test suite' i.e. the group of tests we're about to run
+  before(() => {
+    cy.log('This is running in my before hook')
+  })
   it('Can add a new contact', () => { //This is the 'test' i.e. the individual test we're running
 
     let random = Math.floor(Math.random() * 1000)
@@ -28,5 +31,8 @@ describe('Add Contact Tests', () => { //This is the 'test suite' i.e. the group 
     cy.get('#firstName').type('Joey Jojo')
     cy.get('#submit').click()
     cy.get('#error').should('contain', 'Contact validation failed')
+  })
+  after(() => {
+    cy.log('This is running in my after hook')
   })
 })

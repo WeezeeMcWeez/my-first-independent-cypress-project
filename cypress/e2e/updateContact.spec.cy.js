@@ -1,10 +1,13 @@
-describe('Update Contact Tests', () => { //This is the 'test suite' i.e. the group of tests we're about to run
+describe('Update Contact Tests', () => {
+
+  beforeEach(() => {
+    cy.login()
+  }) //This is the 'test suite' i.e. the group of tests we're about to run
   
   it('Can update a contact', () => { //This is the 'test' i.e. the individual test we're running
 
     let random = Math.floor(Math.random() * 1000)
 
-    cy.login()
     cy.addContact(random) //This 'random' is being passed in from the Commands.js file
 
     cy.contains('Weezee' + random + ' Faker').click()
@@ -35,14 +38,12 @@ describe('Update Contact Tests', () => { //This is the 'test suite' i.e. the gro
     // cy.get('#postalCode').should('contain', '12345')
     // cy.get('#country').should('contain', 'USA')
     
-    cy.deleteContact()
   })
 
   it('Returns an error when birthdate validation fails', () => {
 
     let random = Math.floor(Math.random() * 1000)
 
-    cy.login()
     cy.addContact(random)
     cy.contains('Weezee' + random + ' Faker').click()
     cy.get('#edit-contact').click()
@@ -50,7 +51,10 @@ describe('Update Contact Tests', () => { //This is the 'test suite' i.e. the gro
     cy.get('#submit').click()
     cy.get('#error').should('contain', 'Birthdate is invalid') 
     cy.get('#cancel').click()
-    cy.deleteContact()
 
+  })
+
+  afterEach(() => {
+    cy.deleteContact()
   })
 })
