@@ -25,9 +25,9 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('login', () => {
-  cy.visit('https://thinking-tester-contact-list.herokuapp.com') //This is the command to visit the URL
-  cy.get('#email').type('weezee1@faker.com')
-  cy.get('#password').type('takethat')
+  cy.visit(Cypress.env('url'))//This is the command to visit the URL
+  cy.get('#email').type(Cypress.env('username'))
+  cy.get('#password').type(Cypress.env('password'))
   cy.get('#submit').click()
 })
 

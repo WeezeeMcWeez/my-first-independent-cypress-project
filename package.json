@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress open"
+    "test": "npx cypress open",
+    "qatest": "npx cypress open -C qa.config.js",
+    "headless": "npx cypress run",
+    "qaheadless": "npx cypress run -C qa.config.js"
   },
   "keywords": [],
   "author": "",

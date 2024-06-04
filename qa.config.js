@@ -7,7 +7,8 @@ module.exports = defineConfig({
     },
   },
   env: {
-    username: 'weezee1@faker.com',
-    password: 'takethat'
+    username: 'weezee2@faker.com',
+    password: 'takethis',
+    url:'https://thinking-tester-contact-list.herokuapp.com'
   }
 });
